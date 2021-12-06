@@ -17,7 +17,8 @@ import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDi
 class SubFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentSubBinding =
