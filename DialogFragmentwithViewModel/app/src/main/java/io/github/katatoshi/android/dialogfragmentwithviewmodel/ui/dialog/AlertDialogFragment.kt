@@ -21,7 +21,7 @@ class AlertDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val viewModel by viewModels<AlertDialogViewModel>({ requireParentFragment() })
+        val viewModel by viewModels<AlertViewModel>({ requireParentFragment() })
         val builder = AlertDialog.Builder(requireActivity())
         builder
             .setMessage(message)

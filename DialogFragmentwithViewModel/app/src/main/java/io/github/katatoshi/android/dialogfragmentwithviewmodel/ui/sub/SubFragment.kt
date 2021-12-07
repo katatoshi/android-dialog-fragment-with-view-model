@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.R
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.databinding.FragmentSubBinding
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDialogFragment
-import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDialogViewModel
+import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertViewModel
 
 class SubFragment : Fragment() {
 
@@ -42,18 +42,18 @@ class SubFragment : Fragment() {
             }
         }
 
-        val alertDialogViewModel by viewModels<AlertDialogViewModel>()
+        val alertViewModel by viewModels<AlertViewModel>()
 
-        alertDialogViewModel.positive.observe(viewLifecycleOwner) {
+        alertViewModel.positive.observe(viewLifecycleOwner) {
             if (it) {
                 viewModel.resetCounter()
-                alertDialogViewModel.donePositive()
+                alertViewModel.donePositive()
             }
         }
 
-        alertDialogViewModel.negative.observe(viewLifecycleOwner) {
+        alertViewModel.negative.observe(viewLifecycleOwner) {
             if (it) {
-                alertDialogViewModel.doneNegative()
+                alertViewModel.doneNegative()
             }
         }
 
