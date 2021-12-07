@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.R
@@ -28,7 +27,7 @@ class MainFragment : Fragment() {
 
         viewModel.showResetCounterAlert.observe(viewLifecycleOwner) {
             if (it) {
-                ResetCounterAlertDialogFragment().show(parentFragmentManager, "reset_counter_alert")
+                ResetCounterAlertDialogFragment().show(childFragmentManager, null)
                 viewModel.doneShowingResetCounterAlert()
             }
         }
@@ -37,15 +36,6 @@ class MainFragment : Fragment() {
             if (it) {
                 findNavController().navigate(MainFragmentDirections.actionMainFragmentToSubFragment())
                 viewModel.doneNavigatingToSub()
-            }
-        }
-
-        val resetCounterAlertViewModel by activityViewModels<ResetCounterAlertViewModel>()
-
-        resetCounterAlertViewModel.positive.observe(viewLifecycleOwner) {
-            if (it) {
-                viewModel.resetCounter()
-                resetCounterAlertViewModel.donePositive()
             }
         }
 

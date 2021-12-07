@@ -4,9 +4,8 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 
-@Deprecated("Use screen specific DialogFragment.")
 class AlertDialogFragment : DialogFragment() {
 
     val message: String by lazy {
@@ -22,7 +21,7 @@ class AlertDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val viewModel by activityViewModels<AlertDialogViewModel>()
+        val viewModel by viewModels<AlertViewModel>({ requireParentFragment() })
         val builder = AlertDialog.Builder(requireActivity())
         builder
             .setMessage(message)
