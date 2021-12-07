@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-@Deprecated("Use screen specific DialogFragment.")
 class AlertDialogViewModel : ViewModel() {
 
     private val _positive: MutableLiveData<Boolean> = MutableLiveData(false)

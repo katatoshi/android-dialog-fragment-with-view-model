@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.R
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.databinding.FragmentSubBinding
+import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDialogFragment
+import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDialogViewModel
 
 class SubFragment : Fragment() {
 
@@ -28,7 +29,8 @@ class SubFragment : Fragment() {
 
         viewModel.showResetCounterAlert.observe(viewLifecycleOwner) {
             if (it) {
-                ResetCounterAlertDialogFragment().show(parentFragmentManager, "reset_counter_alert")
+                AlertDialogFragment.newInstance("Reset counter? (SubFragment)", "Yes", "No")
+                    .show(childFragmentManager, null)
                 viewModel.doneShowingResetCounterAlert()
             }
         }
@@ -40,12 +42,18 @@ class SubFragment : Fragment() {
             }
         }
 
-        val resetCounterAlertViewModel by activityViewModels<ResetCounterAlertViewModel>()
+        val alertDialogViewModel by viewModels<AlertDialogViewModel>()
 
-        resetCounterAlertViewModel.positive.observe(viewLifecycleOwner) {
+        alertDialogViewModel.positive.observe(viewLifecycleOwner) {
             if (it) {
                 viewModel.resetCounter()
-                resetCounterAlertViewModel.donePositive()
+                alertDialogViewModel.donePositive()
+            }
+        }
+
+        alertDialogViewModel.negative.observe(viewLifecycleOwner) {
+            if (it) {
+                alertDialogViewModel.doneNegative()
             }
         }
 
