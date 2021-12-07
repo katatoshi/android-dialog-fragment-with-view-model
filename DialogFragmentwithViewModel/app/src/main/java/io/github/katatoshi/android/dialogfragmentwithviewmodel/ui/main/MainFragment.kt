@@ -39,15 +39,6 @@ class MainFragment : Fragment() {
             }
         }
 
-        val resetCounterAlertViewModel by viewModels<ResetCounterAlertViewModel>()
-
-        resetCounterAlertViewModel.positive.observe(viewLifecycleOwner) {
-            if (it) {
-                viewModel.resetCounter()
-                resetCounterAlertViewModel.donePositive()
-            }
-        }
-
         return binding.root
     }
 }
