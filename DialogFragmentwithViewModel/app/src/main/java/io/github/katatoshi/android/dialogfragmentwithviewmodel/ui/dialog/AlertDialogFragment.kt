@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 
+@Deprecated("Use screen specific DialogFragment.")
 class AlertDialogFragment : DialogFragment() {
 
     val message: String by lazy {

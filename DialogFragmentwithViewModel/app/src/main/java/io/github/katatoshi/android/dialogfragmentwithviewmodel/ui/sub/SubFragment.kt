@@ -11,8 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.R
 import io.github.katatoshi.android.dialogfragmentwithviewmodel.databinding.FragmentSubBinding
-import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDialogFragment
-import io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.dialog.AlertDialogViewModel
 
 class SubFragment : Fragment() {
 
@@ -30,8 +28,7 @@ class SubFragment : Fragment() {
 
         viewModel.showResetCounterAlert.observe(viewLifecycleOwner) {
             if (it) {
-                AlertDialogFragment.newInstance("Reset counter? (Sub Fragment)", "Yes", "No")
-                    .show(parentFragmentManager, "reset_counter_alert")
+                ResetCounterAlertDialogFragment().show(parentFragmentManager, "reset_counter_alert")
                 viewModel.doneShowingResetCounterAlert()
             }
         }
@@ -43,18 +40,12 @@ class SubFragment : Fragment() {
             }
         }
 
-        val alertDialogViewModel by activityViewModels<AlertDialogViewModel>()
+        val resetCounterAlertViewModel by activityViewModels<ResetCounterAlertViewModel>()
 
-        alertDialogViewModel.positive.observe(viewLifecycleOwner) {
+        resetCounterAlertViewModel.positive.observe(viewLifecycleOwner) {
             if (it) {
                 viewModel.resetCounter()
-                alertDialogViewModel.donePositive()
-            }
-        }
-
-        alertDialogViewModel.negative.observe(viewLifecycleOwner) {
-            if (it) {
-                alertDialogViewModel.doneNegative()
+                resetCounterAlertViewModel.donePositive()
             }
         }
 
