@@ -4,12 +4,12 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 
 class ResetCounterAlertDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val viewModel by activityViewModels<ResetCounterAlertViewModel>()
+        val viewModel by viewModels<ResetCounterAlertViewModel>({ requireParentFragment() })
         val builder = AlertDialog.Builder(requireActivity())
         builder
             .setMessage("Reset counter? (SubFragment)")
