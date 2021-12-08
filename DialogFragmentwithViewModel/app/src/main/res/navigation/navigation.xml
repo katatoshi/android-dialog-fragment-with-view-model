@@ -26,6 +26,23 @@
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/action_subFragment_to_appendixFragment"
+            app:destination="@id/appendixFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/appendixFragment"
+        android:name="io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.appendix.AppendixFragment"
+        android:label="AppendixFragment">
+
+        <action
+            android:id="@+id/action_appendixFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
 </navigation>

@@ -42,6 +42,13 @@ class SubFragment : Fragment() {
             }
         }
 
+        viewModel.navigateToAppendix.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().navigate(SubFragmentDirections.actionSubFragmentToAppendixFragment())
+                viewModel.doneNavigatingToAppendix()
+            }
+        }
+
         val alertViewModel by viewModels<AlertViewModel>()
 
         alertViewModel.positive.observe(viewLifecycleOwner) {
