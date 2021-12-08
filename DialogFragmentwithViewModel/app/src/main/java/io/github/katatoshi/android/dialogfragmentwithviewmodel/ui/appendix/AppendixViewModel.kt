@@ -1,10 +1,10 @@
-package io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.sub
+package io.github.katatoshi.android.dialogfragmentwithviewmodel.ui.appendix
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SubViewModel : ViewModel() {
+class AppendixViewModel : ViewModel() {
 
     private val _counter: MutableLiveData<Int> = MutableLiveData(0)
 
@@ -15,11 +15,6 @@ class SubViewModel : ViewModel() {
 
     val navigateToMain: LiveData<Boolean>
         get() = _navigateToMain
-
-    private val _navigateToAppendix: MutableLiveData<Boolean> = MutableLiveData(false)
-
-    val navigateToAppendix: LiveData<Boolean>
-        get() = _navigateToAppendix
 
     private val _showResetCounterAlert: MutableLiveData<Boolean> = MutableLiveData(false)
 
@@ -42,14 +37,6 @@ class SubViewModel : ViewModel() {
 
     fun doneNavigatingToMain() {
         _navigateToMain.value = false
-    }
-
-    fun onNavigateToAppendix() {
-        _navigateToAppendix.value = true
-    }
-
-    fun doneNavigatingToAppendix() {
-        _navigateToAppendix.value = false
     }
 
     fun tryToResetCounter() {
