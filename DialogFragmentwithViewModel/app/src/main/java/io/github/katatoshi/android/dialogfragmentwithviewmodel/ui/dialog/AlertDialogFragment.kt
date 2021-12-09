@@ -32,11 +32,11 @@ class AlertDialogFragment : DialogFragment() {
 
     companion object {
 
-        val MESSAGE_KEY = "message"
+        private const val MESSAGE_KEY = "message"
 
-        val POSITIVE_TEXT_KEY = "positive_text"
+        private const val POSITIVE_TEXT_KEY = "positive_text"
 
-        val NEGATIVE_TEXT_KEY = "negative_text"
+        private const val NEGATIVE_TEXT_KEY = "negative_text"
 
         fun newInstance(
             message: String,
