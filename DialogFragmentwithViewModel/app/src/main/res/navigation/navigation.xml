@@ -11,7 +11,9 @@
 
         <action
             android:id="@+id/action_mainFragment_to_subFragment"
-            app:destination="@id/subFragment" />
+            app:destination="@id/subFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
 
     </fragment>
 
@@ -23,12 +25,15 @@
         <action
             android:id="@+id/action_subFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_bottom"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/action_subFragment_to_appendixFragment"
-            app:destination="@id/appendixFragment" />
+            app:destination="@id/appendixFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
 
     </fragment>
 
@@ -40,6 +45,7 @@
         <action
             android:id="@+id/action_appendixFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_bottom"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
 
