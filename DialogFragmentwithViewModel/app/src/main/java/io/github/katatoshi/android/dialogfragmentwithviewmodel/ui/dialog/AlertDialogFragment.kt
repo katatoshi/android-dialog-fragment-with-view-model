@@ -8,15 +8,15 @@ import androidx.fragment.app.viewModels
 
 class AlertDialogFragment : DialogFragment() {
 
-    val message: String by lazy {
+    private val message: String by lazy {
         arguments?.getString(MESSAGE_KEY, "") ?: ""
     }
 
-    val positiveText: String by lazy {
+    private val positiveText: String by lazy {
         arguments?.getString(POSITIVE_TEXT_KEY, "") ?: ""
     }
 
-    val negativeText: String by lazy {
+    private val negativeText: String by lazy {
         arguments?.getString(NEGATIVE_TEXT_KEY, "") ?: ""
     }
 
@@ -32,11 +32,11 @@ class AlertDialogFragment : DialogFragment() {
 
     companion object {
 
-        val MESSAGE_KEY = "message"
+        private const val MESSAGE_KEY = "message"
 
-        val POSITIVE_TEXT_KEY = "positive_text"
+        private const val POSITIVE_TEXT_KEY = "positive_text"
 
-        val NEGATIVE_TEXT_KEY = "negative_text"
+        private const val NEGATIVE_TEXT_KEY = "negative_text"
 
         fun newInstance(
             message: String,
