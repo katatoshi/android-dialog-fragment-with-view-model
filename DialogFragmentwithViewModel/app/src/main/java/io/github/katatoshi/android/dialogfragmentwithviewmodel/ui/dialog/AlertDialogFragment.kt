@@ -8,15 +8,15 @@ import androidx.fragment.app.viewModels
 
 class AlertDialogFragment : DialogFragment() {
 
-    val message: String by lazy {
+    private val message: String by lazy {
         arguments?.getString(MESSAGE_KEY, "") ?: ""
     }
 
-    val positiveText: String by lazy {
+    private val positiveText: String by lazy {
         arguments?.getString(POSITIVE_TEXT_KEY, "") ?: ""
     }
 
-    val negativeText: String by lazy {
+    private val negativeText: String by lazy {
         arguments?.getString(NEGATIVE_TEXT_KEY, "") ?: ""
     }
 
